@@ -1,0 +1,144 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="cosmus_airfield">
+
+    <!-- PLUGINS ESSENCIAIS -->
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="gz-sim-navsat-system" name="gz::sim::systems::NavSat"/>
+
+    <!-- LUZ E CÉU -->
+    <scene>
+      <sky/>
+      <ambient>0.6 0.6 0.6 1</ambient>
+      <background>0.4 0.6 0.9 1</background>
+      <shadows>true</shadows>
+    </scene>
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 500 0 0 0</pose>
+      <diffuse>0.9 0.9 0.9 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <direction>-0.5 0.5 -1</direction>
+    </light>
+
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>-23.5505</latitude_deg>
+      <longitude_deg>-46.6333</longitude_deg>
+      <elevation>760.0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+
+    <!-- GUI DA CÂMERA (Para nascer olhando para o avião) -->
+    <gui fullscreen="0">
+      <camera name="user_camera">
+        <pose>-10 0 5 0 0.3 0</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+    <!-- TERRENO E PISTA BASE -->
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Ground Plane</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+    <!-- CHÃO VERDE -->
+    <include>
+      <name>grass_plane</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Ground Plane</uri>
+      <pose>0 0 -0.05 0 0 0</pose>
+    </include>
+
+    <!-- ÁRVORES -->
+    <include>
+      <name>tree_1</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak tree</uri>
+      <pose>30 30 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>tree_2</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak tree</uri>
+      <pose>-20 35 0 0 0 0.8</pose>
+    </include>
+    <include>
+      <name>tree_3</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak tree</uri>
+      <pose>50 -40 0 0 0 1.5</pose>
+    </include>
+    <include>
+      <name>tree_4</name>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak tree</uri>
+      <pose>-50 -30 0 0 0 0.3</pose>
+    </include>
+
+    <model name="runway_inline">
+      <static>true</static>
+      <pose>0 0 0.01 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box><size>50 20 0.01</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>50 20 0.01</size></box>
+          </geometry>
+          <material>
+            <ambient>0.3 0.3 0.3 1</ambient>
+            <diffuse>0.3 0.3 0.3 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- AVIÃO DO COSMUS DESIGN -->
+    <!-- Pose Z=1.0 para ter certeza que não nasce debaixo da terra -->
+
+     <!-- Multi plane -->
+    <include>
+      <name>plane00</name>
+      <uri>file:///home/drik/Projetos/_COSMUS/COSMUS_gz2/models/plane/plane00.sdf</uri>
+      <pose>0 0 0.13 0 0 0</pose>
+    </include>
+
+
+    <include>
+
+      <name>plane01</name>
+      <uri>file:///home/drik/Projetos/_COSMUS/COSMUS_gz2/models/plane/plane01.sdf</uri>
+      <pose>2 0 0.13 0 0 0</pose>
+    </include>
+
+
+    <include>
+      <name>plane02</name>
+      <uri>file:///home/drik/Projetos/_COSMUS/COSMUS_gz2/models/plane/plane02.sdf</uri>
+      <pose>-2 0 0.13 0 0 0</pose>
+    </include>
+
+        <include>
+      <name>plane03</name>
+      <uri>file:///home/drik/Projetos/_COSMUS/COSMUS_gz2/models/plane/plane03.sdf</uri>
+      <pose>0 2 0.13 0 0 0</pose>
+    </include>
+
+
+    <include>
+      <name>plane04</name>
+      <uri>file:///home/drik/Projetos/_COSMUS/COSMUS_gz2/models/plane/plane04.sdf</uri>
+      <pose>0 -2 0.13 0 0 0</pose>
+    </include>
+
+
+
+  </world>
+</sdf>
