@@ -1,0 +1,46 @@
+cesna_pid_controller:
+  ros__parameters:
+    odom_topic: "/plane00/odometry"
+    imu_topic: "/plane00/imu"
+
+    throttle_topic: "/plane00/cmd_throttle"
+    elevator_topic: "/plane00/cmd_elevator"
+    rudder_topic: "/plane00/cmd_rudder"
+    left_elevon_topic: "/plane00/cmd_left_elevon"
+    right_elevon_topic: "/plane00/cmd_right_elevon"
+
+    speed_ref: 12.0
+    altitude_ref: 5.0
+    heading_ref_deg: 0.0
+
+    trim_throttle: 0.20
+    trim_elevator: 0.00
+    trim_roll: 0.00
+    trim_rudder: 0.00
+
+    kp_speed: 0.03
+    ki_speed: 0.001
+    kd_speed: 0.00
+
+    kp_altitude: 0.015
+    ki_altitude: 0.001
+    kd_altitude: 0.00
+
+    kp_pitch: 1.20
+    kd_pitch: 0.10
+
+    kp_heading: 1.00
+    kp_roll: 1.20
+    kd_roll: 0.10
+
+    max_roll_deg: 15.0
+    max_pitch_deg: 8.0
+
+    throttle_min: 0.0
+    throttle_max: 1.0
+    surface_min: -1.0
+    surface_max: 1.0
+    rudder_min: -0.3
+    rudder_max: 0.3
+
+    loop_rate_hz: 50.0

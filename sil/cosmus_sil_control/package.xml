@@ -2,9 +2,9 @@
 <package format="3">
   <name>cosmus_sil_control</name>
   <version>0.0.1</version>
-  <description>Software-in-the-loop controller package for Cessna fixed-wing in Gazebo using ROS 2.</description>
+  <description>SIL controller package for plane00 fixed-wing in Gazebo using ROS 2.</description>
 
-  <maintainer email="drik@example.com">drik</maintainer>
+  <maintainer email="asbdtup@gmail.com">drik</maintainer>
   <license>Apache-2.0</license>
 
   <buildtool_depend>ament_python</buildtool_depend>
@@ -12,8 +12,6 @@
   <exec_depend>rclpy</exec_depend>
   <exec_depend>launch</exec_depend>
   <exec_depend>launch_ros</exec_depend>
-
-  <!-- dependências de mensagens ref ao avião-->
   <exec_depend>nav_msgs</exec_depend>
   <exec_depend>sensor_msgs</exec_depend>
   <exec_depend>std_msgs</exec_depend>
