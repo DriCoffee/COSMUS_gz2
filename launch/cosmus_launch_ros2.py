@@ -7,8 +7,8 @@ from ament_index_python.packages import get_package_share_directory
 # =========================================================
 # AJUSTE ESSES CAMINHOS SE NECESSÁRIO
 # =========================================================
-WORLD_FILE  = '/home/drik/Projetos/_COSMUS/COSMUS_gz2/worlds/cosmus_cessna.sdf'
-MODELS_PATH = '/home/drik/Projetos/_COSMUS/COSMUSDesign/COSMUS_gazebo/models'
+WORLD_FILE  = '/home/drik/Projetos/_Mestrado/sim/COSMUS_gz2/worlds/cosmus_cessna.sdf'
+MODELS_PATH = '/home/drik/Projetos/_Mestrado/sim/COSMUS_gz2/models'
 # =========================================================
 
 def generate_launch_description():

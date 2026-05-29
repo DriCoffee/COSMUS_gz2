@@ -7,9 +7,9 @@ from ament_index_python.packages import get_package_share_directory
 from launch.actions import TimerAction
 
 # Caminhos do projeto
-COSMUS_MODELS = '/home/drik/Projetos/_COSMUS/COSMUS_gz2/models'
-WORLD_FILE    = '/home/drik/Projetos/_COSMUS/COSMUS_gz2/worlds/cosmus_airfield.sdf'
-BRIDGE_YAML   = '/home/drik/Projetos/_COSMUS/COSMUS_gz2/config/ros_gz_bridge.yaml'
+COSMUS_MODELS = '/home/drik/Projetos/_Mestrado/sim/COSMUS_gz2/models'
+WORLD_FILE    = '/home/drik/Projetos/_Mestrado/sim/COSMUS_gz2/worlds/cosmus_airfield.sdf'
+BRIDGE_YAML   = '/home/drik/Projetos/_Mestrado/sim/COSMUS_gz2/config/ros_gz_bridge.yaml'
 
 def generate_launch_description():
     ros_gz_sim = get_package_share_directory('ros_gz_sim')
