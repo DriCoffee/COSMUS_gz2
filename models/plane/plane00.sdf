@@ -151,39 +151,83 @@
     </joint>
 
     <!-- Aerodinâmica -->
+    <!-- Asa esquerda -->
+
     <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
-      <a0>0.05984281113</a0><cla>4.752798721</cla><cda>0.6417112299</cda>
-      <alpha_stall>0.3391428111</alpha_stall><cla_stall>-3.85</cla_stall><cda_stall>-0.9233984055</cda_stall>
-      <cp>-0.05 0.45 0.05</cp><area>0.6</area><air_density>1.2041</air_density>
-      <forward>1 0 0</forward><upward>0 0 1</upward><link_name>base_link</link_name>
-      <control_joint_name>left_elevon_joint</control_joint_name><control_joint_rad_to_cl>-0.3</control_joint_rad_to_cl>
-    </plugin>
-    <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
-      <a0>0.05984281113</a0><cla>4.752798721</cla><cda>0.6417112299</cda>
-      <alpha_stall>0.3391428111</alpha_stall><cla_stall>-3.85</cla_stall><cda_stall>-0.9233984055</cda_stall>
-      <cp>-0.05 -0.45 0.05</cp><area>0.6</area><air_density>1.2041</air_density>
-      <forward>1 0 0</forward><upward>0 0 1</upward><link_name>base_link</link_name>
-      <control_joint_name>right_elevon_joint</control_joint_name><control_joint_rad_to_cl>-0.3</control_joint_rad_to_cl>
-    </plugin>
-    <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
-      <a0>-0.2</a0><cla>4.752798721</cla><cda>0.6417112299</cda>
-      <alpha_stall>0.3391428111</alpha_stall><cla_stall>-3.85</cla_stall><cda_stall>-0.9233984055</cda_stall>
-      <cp>-0.5 0 0</cp><area>0.01</area><air_density>1.2041</air_density>
-      <forward>1 0 0</forward><upward>0 0 1</upward><link_name>base_link</link_name>
-      <control_joint_name>elevator_joint</control_joint_name><control_joint_rad_to_cl>-4.0</control_joint_rad_to_cl>
-    </plugin>
-    <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
-      <a0>0.0</a0><cla>4.752798721</cla><cda>0.6417112299</cda>
-      <alpha_stall>0.3391428111</alpha_stall><cla_stall>-3.85</cla_stall><cda_stall>-0.9233984055</cda_stall>
-      <cp>-0.5 0 0.05</cp><area>0.02</area><air_density>1.2041</air_density>
-      <forward>1 0 0</forward><upward>0 1 0</upward><link_name>base_link</link_name>
-      <control_joint_name>rudder_joint</control_joint_name><control_joint_rad_to_cl>0.8</control_joint_rad_to_cl>
+      <a0>0.05</a0>
+      <cla>4.0</cla>
+      <cda>0.06</cda>
+      <cma>0.0</cma>
+      <alpha_stall>0.3391428111</alpha_stall>
+      <cla_stall>-3.85</cla_stall>
+      <cda_stall>-0.9233984055</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <cp>-0.5 0.0 0.1</cp>
+      <area>0.6</area>
+      <air_density>1.2041</air_density>
+      <forward>1 0 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>base_link</link_name>
     </plugin>
 
-    <!-- Motor -->
-    <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+    <!-- Asa direita -->
+    <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
+      <a0>0.05</a0>
+      <cla>4.0</cla>
+      <cda>0.06</cda>
+      <cma>0.0</cma>
+      <alpha_stall>0.3391428111</alpha_stall>
+      <cla_stall>-3.85</cla_stall>
+      <cda_stall>-0.9233984055</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <cp>0.5 0.0 0.1</cp>
+      <area>0.6</area>
+      <air_density>1.2041</air_density>
+      <forward>1 0 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>base_link</link_name>
+    </plugin>
+
+    <!--Estabilizador horizontal (elevator)-->
+    <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag">
+      <a0>0.0</a0>
+      <cla>2.0</cla>
+      <cda>0.04</cda>
+      <cma>0.0</cma>
+      <alpha_stall>0.3391428111</alpha_stall>
+      <cla_stall>-3.85</cla_stall>
+      <cda_stall>-0.9233984055</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <cp>0.0 -1.2 0.1</cp>
+      <area>0.2</area>
+      <air_density>1.2041</air_density>
+      <forward>1 0 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>base_link</link_name>
+    </plugin>
+
+
+    <!---->
+
+
+     <!-- Motor / Thruster: comando em N via cmd_thrust -->
+    <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster">
       <joint_name>rotor_puller_joint</joint_name>
-      <use_force_commands>false</use_force_commands>
+
+      <!-- físico do ar -->
+      <fluid_density>1.225</fluid_density>
+      <propeller_diameter>0.25</propeller_diameter>
+
+      <!-- comando interpretado como thrust em Newtons -->
+      <use_angvel_cmd>false</use_angvel_cmd>
+
+      <!-- ganho e limites (ajustáveis depois) -->
+      <thrust_coefficient>1.0</thrust_coefficient>
+      <max_thrust_cmd>500.0</max_thrust_cmd>
+      <min_thrust_cmd>0.0</min_thrust_cmd>
+
+      <!-- sem zona morta -->
+      <deadband>0.0</deadband>
     </plugin>
 
     <!-- Superfícies de controle -->
@@ -215,6 +259,42 @@
 
     <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
     <plugin filename="gz-sim-navsat-system" name="gz::sim::systems::NavSat"/>
+
+    <!-- Roda dianteira -->
+    <collision name="front_wheel_col">
+      <pose>0.7 0 -0.15 0 0 0</pose>
+      <geometry><sphere><radius>0.04</radius></sphere></geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.01</mu>
+            <mu2>0.01</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+
+    <!-- Roda traseira esquerda -->
+    <collision name="rear_left_wheel_col">
+      <pose>-0.4 0.3 -0.15 0 0 0</pose>
+      <geometry><sphere><radius>0.04</radius></sphere></geometry>
+      <surface>
+        <friction>
+          <ode><mu>0.01</mu><mu2>0.01</mu2></ode>
+        </friction>
+      </surface>
+    </collision>
+
+    <!-- Roda traseira direita -->
+    <collision name="rear_right_wheel_col">
+      <pose>-0.4 -0.3 -0.15 0 0 0</pose>
+      <geometry><sphere><radius>0.04</radius></sphere></geometry>
+      <surface>
+        <friction>
+          <ode><mu>0.01</mu><mu2>0.01</mu2></ode>
+        </friction>
+      </surface>
+    </collision>
 
     <static>0</static>
   </model>

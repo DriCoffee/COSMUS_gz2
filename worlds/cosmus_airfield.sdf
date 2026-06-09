@@ -106,7 +106,7 @@
      <!-- Multi plane -->
     <include>
       <name>plane00</name>
-      <uri>file:///home/drik/Projetos/_COSMUS/COSMUS_gz2/models/plane/plane00.sdf</uri>
+      <uri>file:///home/drik/Projetos/_Mestrado/sim/COSMUS_gz2/models/plane/plane00.sdf</uri>
       <pose>0 0 1.0 0 0 0</pose>
     </include>
 

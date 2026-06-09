@@ -212,11 +212,8 @@ class CesnaPidController(Node):
         left_elevon_cmd = saturate(-roll_cmd, surface_min, surface_max)
         right_elevon_cmd = saturate(roll_cmd, surface_min, surface_max)
 
-        self.publish_float(self.throttle_pub, throttle_cmd)
-        self.publish_float(self.elevator_pub, elevator_cmd)
-        self.publish_float(self.rudder_pub, rudder_cmd)
-        self.publish_float(self.left_elevon_pub, left_elevon_cmd)
-        self.publish_float(self.right_elevon_pub, right_elevon_cmd)
+        thrust_max = 300.0  # N, ganho inicial
+        self.publish_float(self.throttle_pub, throttle_cmd * thrust_max)
 
         self.prev_speed_error = speed_error
         self.prev_altitude_error = altitude_error
