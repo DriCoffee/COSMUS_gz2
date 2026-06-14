@@ -9,39 +9,39 @@ cesna_pid_controller:
     left_elevon_topic: "/plane00/cmd_left_elevon"
     right_elevon_topic: "/plane00/cmd_right_elevon"
 
-    speed_ref: 20.0
-    altitude_ref: 100.0
+    speed_ref: 18.0
+    altitude_ref: 15.0
     heading_ref_deg: 0.0
 
-    trim_throttle: 0.7
-    trim_elevator: 0.07
+    trim_throttle: 0.90
+    trim_elevator: 0.00
     trim_roll: 0.0
-    trim_rudder: 0.0
+    trim_rudder: 0.00
 
-    kp_speed: 0.02
+    kp_speed: 0.01
     ki_speed: 0.0
     kd_speed: 0.0
 
-    kp_altitude: 0.002
+    kp_altitude: 0.01
     ki_altitude: 0.0
-    kd_altitude: 0.0
+    kd_altitude: 0.00
 
-    kp_pitch: 0.30
-    kd_pitch: 0.20
+    kp_pitch: 0.80
+    kd_pitch: 0.06
 
-    kp_heading: 0.30
-    kp_roll: 0.0
-    kd_roll: 0.25
+    kp_heading: 0.00 #1.00
+    kp_roll: 0.0 #1.20
+    kd_roll: 0.0 #0.10
 
-    max_roll_deg: 3.0
-    max_pitch_deg: 5.0
+    max_roll_deg: 10.0
+    max_pitch_deg: 12.0
 
     throttle_min: 0.0
-    throttle_max: 7.0
-    surface_min: -0.15
-    surface_max: 0.15
-
-    rudder_min: -0.2
-    rudder_max: 0.2
+    throttle_max: 20.0
+    surface_min: -0.2
+    surface_max: 0.2
+    #rudder travado
+    rudder_min: -0.05 #-0.3
+    rudder_max: 0.05 #0.3
 
     loop_rate_hz: 50.0

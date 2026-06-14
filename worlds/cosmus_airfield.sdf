@@ -38,7 +38,7 @@
     <!-- GUI DA CÂMERA (Para nascer olhando para o avião) -->
     <gui fullscreen="0">
       <camera name="user_camera">
-        <pose>-10 0 5 0 0.3 0</pose>
+        <pose>-5 0 105 0 0.3 0</pose>
         <view_controller>orbit</view_controller>
       </camera>
     </gui>
@@ -107,7 +107,7 @@
     <include>
       <name>plane00</name>
       <uri>file:///home/drik/Projetos/_Mestrado/sim/COSMUS_gz2/models/plane/plane00.sdf</uri>
-      <pose>0 0 1.0 0 0 0</pose>
+      <pose>0 0 100 0 0 0</pose>
     </include>
 
  <!--
